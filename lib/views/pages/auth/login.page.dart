@@ -64,8 +64,8 @@ class _LoginPageState extends State<LoginPage> {
                           [
                             VStack(
                               [
-                                "Welcome Back".tr().text.xl2.semiBold.make(),
-                                "Login to continue".tr().text.light.make(),
+                                "Login to continue".tr().text.xl2.semiBold.make(),
+                                // "Login to continue".tr().text.light.make(),
                               ],
                             ).expand(),
                             Image.asset(

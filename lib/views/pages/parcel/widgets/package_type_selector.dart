@@ -16,7 +16,7 @@ class PackageTypeSelector extends StatelessWidget {
     return VStack(
       [
         //
-        "Select Package Type".tr().text.xl.medium.make().py20(),
+        "Select Delivery Type".tr().text.xl.medium.make().py20(),
         //package type
         CustomListView(
           isLoading: vm.busy(vm.packageTypes),

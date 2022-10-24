@@ -57,8 +57,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   VStack(
                     [
                       //
-                      "Join Us".tr().text.xl2.semiBold.make(),
-                      "Create an account now".tr().text.light.make(),
+                      "Complete Profile".tr().text.xl2.semiBold.make(),
+                      // "Complete Profile".tr().text.light.make(),
 
                       //form
                       Form(
@@ -79,39 +79,39 @@ class _RegisterPageState extends State<RegisterPage> {
                               validator: FormValidator.validateEmail,
                             ).py12(),
                             //
-                            HStack(
-                              [
-                                CustomTextFormField(
-                                  prefixIcon: HStack(
-                                    [
-                                      //icon/flag
-                                      Flag.fromString(
-                                        model.selectedCountry.countryCode,
-                                        width: 20,
-                                        height: 20,
-                                      ),
-                                      UiSpacer.horizontalSpace(space: 5),
-                                      //text
-                                      ("+" + model.selectedCountry.phoneCode)
-                                          .text
-                                          .make(),
-                                    ],
-                                  ).px8().onInkTap(model.showCountryDialPicker),
-                                  labelText: "Phone".tr(),
-                                  hintText: "",
-                                  keyboardType: TextInputType.phone,
-                                  textEditingController: model.phoneTEC,
-                                  validator: FormValidator.validatePhone,
-                                ).expand(),
-                              ],
-                            ).py12(),
+                            // HStack(
+                            //   [
+                            //     CustomTextFormField(
+                            //       prefixIcon: HStack(
+                            //         [
+                            //           //icon/flag
+                            //           Flag.fromString(
+                            //             model.selectedCountry.countryCode,
+                            //             width: 20,
+                            //             height: 20,
+                            //           ),
+                            //           UiSpacer.horizontalSpace(space: 5),
+                            //           //text
+                            //           ("+" + model.selectedCountry.phoneCode)
+                            //               .text
+                            //               .make(),
+                            //         ],
+                            //       ).px8().onInkTap(model.showCountryDialPicker),
+                            //       labelText: "Phone".tr(),
+                            //       hintText: "",
+                            //       keyboardType: TextInputType.phone,
+                            //       textEditingController: model.phoneTEC,
+                            //       validator: FormValidator.validatePhone,
+                            //     ).expand(),
+                            //   ],
+                            // ).py12(),
                             //
-                            CustomTextFormField(
-                              labelText: "Password".tr(),
-                              obscureText: true,
-                              textEditingController: model.passwordTEC,
-                              validator: FormValidator.validatePassword,
-                            ).py12(),
+                            // CustomTextFormField(
+                            //   labelText: "Password".tr(),
+                            //   obscureText: true,
+                            //   textEditingController: model.passwordTEC,
+                            //   validator: FormValidator.validatePassword,
+                            // ).py12(),
                             //
                             AppStrings.enableReferSystem
                                 ? CustomTextFormField(

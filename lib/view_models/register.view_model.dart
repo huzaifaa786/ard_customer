@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cool_alert/cool_alert.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -58,7 +60,8 @@ class RegisterViewModel extends MyBaseViewModel {
 
   void processRegister() async {
     //
-    accountPhoneNumber = "+${selectedCountry.phoneCode}${phoneTEC.text}";
+    accountPhoneNumber = phoneTEC.text;
+   
     //
     // Validate returns true if the form is valid, otherwise false.
     if (formKey.currentState.validate() && agreed) {

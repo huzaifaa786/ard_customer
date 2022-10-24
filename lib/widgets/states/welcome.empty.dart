@@ -105,7 +105,7 @@ class EmptyWelcome extends StatelessWidget {
               [
                 HStack(
                   [
-                    "I want :".tr().text.xl.medium.make().expand(),
+                    "I want:".tr().text.xl.medium.make().expand(),
                     CustomVisibilty(
                       visible: HomeScreenConfig.isVendorTypeListingBoth,
                       child: Icon(

@@ -111,7 +111,7 @@ class PackageDeliverySummary extends StatelessWidget {
             UiSpacer.formVerticalSpace(),
 
             //
-            "Recipient Info".tr().text.xl.medium.make().py8(),
+            "Pickup Info".tr().text.xl.medium.make().py8(),
             //recipients
             CustomListView(
               noScrollPhysics: true,
@@ -155,7 +155,8 @@ class PackageDeliverySummary extends StatelessWidget {
                         "note".tr().allWordsCapitilize().text.semiBold.make(),
                         noteTEC.text.text.make(),
                       ],
-                    )
+                    ),
+                    "Receipt Info".tr().text.xl.medium.make().py8(),
                   ],
                 )
                     .p12()

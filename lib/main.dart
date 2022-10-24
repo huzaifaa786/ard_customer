@@ -28,39 +28,40 @@ class MyHttpOverrides extends HttpOverrides {
 void main() async {
   // await runZonedGuarded(
   //   () async {
-      WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
-      await translator.init(
-        localeType: LocalizationDefaultType.asDefined,
-        languagesList: AppLanguages.codes,
-        assetsDirectory: 'assets/lang/',
-      );
+  await translator.init(
+    localeType: LocalizationDefaultType.asDefined,
+    languagesList: AppLanguages.codes,
+    assetsDirectory: 'assets/lang/',
+  );
 
-      //
-      await LocalStorageService.getPrefs();
-      await CartServices.getCartItems();
-      //setting up firebase notifications
-      await Firebase.initializeApp();
-      await NotificationService.clearIrrelevantNotificationChannels();
-      await NotificationService.initializeAwesomeNotification();
-      await NotificationService.listenToActions();
-      await FirebaseService().setUpFirebaseMessaging();
-      FirebaseMessaging.onBackgroundMessage(   
-          GeneralAppService.onBackgroundMessageHandler);
+  //
+  await LocalStorageService.getPrefs();
+  await CartServices.getCartItems();
+  //setting up firebase notifications
+  await Firebase.initializeApp();
+  await NotificationService.clearIrrelevantNotificationChannels();
+  await NotificationService.initializeAwesomeNotification();
+  await NotificationService.listenToActions();
+  await FirebaseService().setUpFirebaseMessaging();
+  FirebaseMessaging.onBackgroundMessage(
+      GeneralAppService.onBackgroundMessageHandler);
 
-      //prevent ssl error
-      HttpOverrides.global = new MyHttpOverrides();
-      FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
-      // Run app!
-      runApp(
-        LocalizedApp(
-          child: MyApp(),
-        ),
-      );
-    }
+  //prevent ssl error
+  HttpOverrides.global = new MyHttpOverrides();
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+  // Run app!
+  runApp(
+    LocalizedApp(
+      child: MyApp(),
+    ),
+  );
+}
     // ,
     // (error, stackTrace) {
     //   FirebaseCrashlytics.instance.recordError(error, stackTrace);
     // },
   // );
 // }
+      

@@ -61,15 +61,15 @@ class OTPLoginView extends StatelessWidget {
             //     .py12()
             //     .onInkTap(model.toggleLoginType),
             // //register
-            "OR".tr().text.light.makeCentered(),
+            // "OR".tr().text.light.makeCentered(),
             
-            "Create An Account"
-                .tr()
-                .text
-                .semiBold
-                .makeCentered()
-                .py12()
-                .onInkTap(model.openRegister),
+            // "Create An Account"
+            //     .tr()
+            //     .text
+            //     .semiBold
+            //     .makeCentered()
+            //     .py12()
+            //     .onInkTap(model.openRegister),
           ],
           crossAlignment: CrossAxisAlignment.end,
         ),

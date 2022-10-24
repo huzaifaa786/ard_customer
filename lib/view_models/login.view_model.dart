@@ -115,7 +115,7 @@ class LoginViewModel extends MyBaseViewModel with QrcodeScannerTrait {
         print("codeAutoRetrievalTimeout called");
       },
     );
-    setBusyForObject(otpLogin, false);  
+    setBusyForObject(otpLogin, false);
   }
 
   processCustomOTPVerification() async {
@@ -195,7 +195,7 @@ class LoginViewModel extends MyBaseViewModel with QrcodeScannerTrait {
       final apiResponse = await authRequest.verifyOTP(
         accountPhoneNumber,
         smsCode,
-        isLogin: true,
+        isLogin: false,
       );
 
       //
@@ -288,6 +288,8 @@ class LoginViewModel extends MyBaseViewModel with QrcodeScannerTrait {
           title: "Login Failed".tr(),
           text: apiResponse.message,
         );
+      } else if (apiResponse.body['phone'] != null) {
+        openRegister(phone: apiResponse.body['phone']);
       } else {
         //everything works well
         //firebase auth
