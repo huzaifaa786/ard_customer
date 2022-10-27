@@ -32,7 +32,7 @@ class AccountVerificationEntry extends StatefulWidget {
 class _AccountVerificationEntryState extends State<AccountVerificationEntry> {
   TextEditingController pinTEC = new TextEditingController();
   String smsCode;
-  int resendSecs = 5;
+  int resendSecs = 15;
   int maxResendSeconds = 30;
   bool loading = false;
 

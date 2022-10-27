@@ -60,16 +60,17 @@ class PharmacyViewModel extends MyBaseViewModel {
   //
   getVendors() async {
     //
+    print('Hello World');
     setBusyForObject(vendors, true);
-    try {
+    // try {
       vendors = await vendorRequest.nearbyVendorsRequest(
         params: {
           "vendor_type_id": vendorType.id,
         },
       );
-    } catch (error) {
-      print("Error ==> $error");
-    }
+    // } catch (error) {
+    //   print("Error ==> $error");
+    // }
     setBusyForObject(vendors, false);
   }
 

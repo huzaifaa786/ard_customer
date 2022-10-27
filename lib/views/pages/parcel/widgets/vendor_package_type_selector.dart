@@ -38,7 +38,7 @@ class VendorPackageTypeSelector extends StatelessWidget {
         //
         FormStepController(
           onPreviousPressed: () => vm.nextForm(1),
-          onNextPressed:
+          onNextPressed: 
               vm.selectedVendor != null ? () => vm.nextForm(3) : null,
         ),
       ],

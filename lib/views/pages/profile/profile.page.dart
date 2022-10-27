@@ -87,6 +87,12 @@ class _ProfilePageState extends State<ProfilePage>
                       ic: AppIcons.translation,
                       onPressed: model.changeLanguage,
                     ),
+                    MenuItem(
+                      title: "Change Theme Mode".tr(),
+                      divider: false,
+                      ic: AppIcons.edit,
+                      onPressed: model.changeTheme,
+                    ),
 
                     //
                     MenuItem(

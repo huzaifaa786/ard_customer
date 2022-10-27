@@ -144,7 +144,9 @@ class Vendor {
           json["delivery"] == null ? 0 : int.parse(json["delivery"].toString()),
       rating:
           json["rating"] == null ? null : int.parse(json["rating"].toString()),
-      reviews_count: json["reviews_count"],
+      reviews_count: json["reviews_count"] == null
+          ? 0
+          : int.parse(json["reviews_count"].toString()),
       chargePerKm: json["charge_per_km"] == null
           ? null
           : int.parse(json["charge_per_km"].toString()),

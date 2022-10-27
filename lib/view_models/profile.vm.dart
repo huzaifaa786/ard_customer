@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:fuodz/extensions/dynamic.dart';
@@ -204,6 +205,10 @@ class ProfileViewModel extends PaymentViewModel {
       },
     );
   }
+  void changeTheme() async {
+   AdaptiveTheme.of(viewContext).toggleThemeMode();
+  }
+  
 
   openLogin() async {
     await viewContext.navigator.pushNamed(

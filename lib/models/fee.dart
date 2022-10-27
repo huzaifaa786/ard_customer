@@ -35,8 +35,8 @@ class Fee {
         id: json["id"],
         name: json["name"],
         value: double.parse(json["value"].toString()),
-        percentage: json["percentage"],
-        isActive: json["is_active"],
+        percentage: int.parse(json["percentage"].toString()),
+        isActive: int.parse(json["is_active"].toString()),
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
         deletedAt: json["deleted_at"],
@@ -74,8 +74,8 @@ class Pivot {
   int feeId;
 
   factory Pivot.fromJson(Map<String, dynamic> json) => Pivot(
-        vendorId: json["vendor_id"],
-        feeId: json["fee_id"],
+        vendorId: int.parse(json["vendor_id"].toString()),
+        feeId: int.parse(json["fee_id"].toString()),
       );
 
   Map<String, dynamic> toJson() => {

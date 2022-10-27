@@ -119,54 +119,120 @@ class PackageDeliverySummary extends StatelessWidget {
               itemBuilder: (context, index) {
                 //
                 // OrderStop stop = vm.packageCheckout.stopsLocation[index];
-                final recipientNameTEC = vm.recipientNamesTEC[index];
-                final recipientPhoneTEC = vm.recipientPhonesTEC[index];
-                final noteTEC = vm.recipientNotesTEC[index];
-                //
-                return VStack(
-                  [
-                    HStack(
-                      [
-                        VStack(
-                          [
-                            "Name".tr().text.semiBold.make(),
-                            recipientNameTEC.text.text.make(),
-                          ],
-                        ).expand(),
-                        UiSpacer.horizontalSpace(),
-                        VStack(
-                          [
-                            "phone"
-                                .tr()
-                                .allWordsCapitilize()
-                                .text
-                                .semiBold
-                                .make(),
-                            recipientPhoneTEC.text.text.make(),
-                          ],
-                        ).expand(),
-                      ],
-                    ),
+                final recipientNameTEC = vm.recipientNamesTEC[0];
+                final recipientPhoneTEC = vm.recipientPhonesTEC[0];
+                final noteTEC = vm.recipientNotesTEC[0];
 
-                    //
-                    UiSpacer.verticalSpace(space: 5),
-                    VStack(
-                      [
-                        "note".tr().allWordsCapitilize().text.semiBold.make(),
-                        noteTEC.text.text.make(),
-                      ],
-                    ),
-                    "Receipt Info".tr().text.xl.medium.make().py8(),
-                  ],
-                )
-                    .p12()
-                    .box
-                    .roundedSM
-                    .border(color: Colors.grey[300], width: 2)
-                    .make()
-                    .wFull(context);
+                //
+                if (index == 0) {
+                  return VStack(
+                    [
+                      HStack(
+                        [
+                          VStack(
+                            [
+                              "Name".tr().text.semiBold.make(),
+                              recipientNameTEC.text.text.make(),
+                            ],
+                          ).expand(),
+                          UiSpacer.horizontalSpace(),
+                          VStack(
+                            [
+                              "phone"
+                                  .tr()
+                                  .allWordsCapitilize()
+                                  .text
+                                  .semiBold
+                                  .make(),
+                              recipientPhoneTEC.text.text.make(),
+                            ],
+                          ).expand(),
+                        ],
+                      ),
+
+                      //
+                      UiSpacer.verticalSpace(space: 5),
+                      VStack(
+                        [
+                          "note".tr().allWordsCapitilize().text.semiBold.make(),
+                          noteTEC.text.text.make(),
+                        ],
+                      ),
+                    ],
+                  )
+                      .p12()
+                      .box
+                      .roundedSM
+                      .border(color: Colors.grey[300], width: 2)
+                      .make()
+                      .wFull(context);
+                }
               },
               padding: EdgeInsets.only(top: Vx.dp16),
+            ),
+
+            UiSpacer.formVerticalSpace(),
+            //
+            "Receipt Info".tr().text.xl.medium.make(),
+
+            //recipients
+            CustomListView(
+              noScrollPhysics: true,
+              dataSet: vm.recipientNamesTEC,
+              itemBuilder: (context, index) {
+                //
+                // OrderStop stop = vm.packageCheckout.stopsLocation[index];
+                final recipientNameTEC = vm.recipientNamesTEC[1];
+                final recipientPhoneTEC = vm.recipientPhonesTEC[1];
+                final noteTEC = vm.recipientNotesTEC[1];
+                //
+                if (index == 1) {
+                  return VStack(
+                    [
+                      HStack(
+                        [
+                          VStack(
+                            [
+                              "Name".tr().text.semiBold.make(),
+                              recipientNameTEC.text.text.make(),
+                            ],
+                          ).expand(),
+                          UiSpacer.horizontalSpace(),
+                          VStack(
+                            [
+                              "phone"
+                                  .tr()
+                                  .allWordsCapitilize()
+                                  .text
+                                  .semiBold
+                                  .make(),
+                              recipientPhoneTEC.text.text.make(),
+                            ],
+                          ).expand(),
+                        ],
+                      ),
+
+                      //
+                      UiSpacer.verticalSpace(space: 5),
+                      VStack(
+                        [
+                          "note".tr().allWordsCapitilize().text.semiBold.make(),
+                          noteTEC.text.text.make(),
+                        ],
+                      ),
+                    ],
+                  )
+                      .p12()
+                      .box
+                      .roundedSM
+                      .border(color: Colors.grey[300], width: 2)
+                      .make()
+                      .wFull(context);
+                }else{
+                  return Text('');
+                }
+              },
+              // padding: EdgeInsets.only(top: Vx.dp16),
             ),
 
             UiSpacer.formVerticalSpace(),

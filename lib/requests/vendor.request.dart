@@ -94,6 +94,7 @@ class VendorRequest extends HttpService {
     );
 
     final apiResponse = ApiResponse.fromResponse(apiResult);
+  
     if (apiResponse.allGood) {
       return apiResponse.data
           .map((jsonObject) => Vendor.fromJson(jsonObject))

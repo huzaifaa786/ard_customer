@@ -203,7 +203,7 @@ class RegisterViewModel extends MyBaseViewModel {
       email: emailTEC.text,
       phone: accountPhoneNumber,
       countryCode: selectedCountry.countryCode,
-      password: passwordTEC.text,
+      password:"password",
       code: referralCodeTEC.text ?? "",
     );
 
