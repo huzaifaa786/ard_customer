@@ -44,7 +44,29 @@ class NewDeliveryAddressesPage extends StatelessWidget {
                       errorTitle: "Address".tr()),
                   onTap: vm.openLocationPicker,
                 ).py2(),
+
                 // description
+                UiSpacer.verticalSpace(),
+                CustomTextFormField(
+                  // prefixIcon: HStack(
+                  //   [
+                  //     //icon/flag
+                  //     Flag.fromString(
+                  //       model.selectedCountry.countryCode,
+                  //       width: 20,
+                  //       height: 20,
+                  //     ),
+                  //     UiSpacer.horizontalSpace(space: 5),
+                  //     //text
+                  //     ("+" + model.selectedCountry.phoneCode).text.make(),
+                  //   ],
+                  // ).px8().onInkTap(model.showCountryDialPicker),
+                  labelText: "Phone".tr(),
+                  hintText: "",
+                  keyboardType: TextInputType.phone,
+                  textEditingController: vm.phoneTEC,
+                  validator: FormValidator.validatePhone,
+                ).expand(),
                 UiSpacer.verticalSpace(),
                 CustomTextFormField(
                   labelText: "Description".tr(),

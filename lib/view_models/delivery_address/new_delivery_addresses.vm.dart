@@ -13,6 +13,7 @@ class NewDeliveryAddressesViewModel extends BaseDeliveryAddressesViewModel {
   DeliveryAddressRequest deliveryAddressRequest = DeliveryAddressRequest();
   TextEditingController nameTEC = TextEditingController();
   TextEditingController addressTEC = TextEditingController();
+  TextEditingController phoneTEC = TextEditingController();
   TextEditingController descriptionTEC = TextEditingController();
   TextEditingController what3wordsTEC = TextEditingController();
   bool isDefault = false;

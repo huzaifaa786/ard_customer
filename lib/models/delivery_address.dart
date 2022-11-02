@@ -13,6 +13,7 @@ class DeliveryAddress {
     this.id,
     this.name,
     this.description,
+    this.phone,
     this.city,
     this.state,
     this.country,
@@ -32,12 +33,14 @@ class DeliveryAddress {
   int id;
   String name;
   String description;
+  String phone;
   String address;
   String city;
   String state;
   String country;
   double latitude;
   double longitude;
+
   int isDefault;
   int userId;
   DateTime createdAt;
@@ -52,6 +55,7 @@ class DeliveryAddress {
         id: json["id"],
         name: json["name"],
         description: json["description"] == null ? "" : json["description"],
+        phone: json["phone"] == null ? "" : json["phone"],
         address: json["address"],
         city: json["city"],
         state: json["state"],
@@ -74,6 +78,7 @@ class DeliveryAddress {
         "id": id,
         "name": name,
         "description": description,
+        "phone": phone,
         "city": city,
         "state": state,
         "country": country,
@@ -94,6 +99,7 @@ class DeliveryAddress {
   Map<String, dynamic> toSaveJson() => {
         "name": name,
         "description": description,
+        "phone": phone,
         "address": address,
         "city": city,
         "state": state,
