@@ -97,7 +97,7 @@ class NewParcelPage extends StatelessWidget {
                   VendorPackageTypeSelector(vm: vm),
 
                   //receiver info
-                  PackageRecipientInfo(vm: vm),
+                  // PackageRecipientInfo(vm: vm),
 
                   //parcel info
                   CustomVisibilty(

@@ -47,6 +47,7 @@ class NewDeliveryAddressesPage extends StatelessWidget {
 
                 // description
                 UiSpacer.verticalSpace(),
+              
                 CustomTextFormField(
                   // prefixIcon: HStack(
                   //   [
@@ -66,7 +67,7 @@ class NewDeliveryAddressesPage extends StatelessWidget {
                   keyboardType: TextInputType.phone,
                   textEditingController: vm.phoneTEC,
                   validator: FormValidator.validatePhone,
-                ).expand(),
+                ).py2(),
                 UiSpacer.verticalSpace(),
                 CustomTextFormField(
                   labelText: "Description".tr(),

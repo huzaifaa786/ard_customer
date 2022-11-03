@@ -65,6 +65,7 @@ class NewDeliveryAddressesViewModel extends BaseDeliveryAddressesViewModel {
       //
       deliveryAddress.name = nameTEC.text;
       deliveryAddress.description = descriptionTEC.text;
+      deliveryAddress.phone = phoneTEC.text;
       //
       setBusy(true);
       //

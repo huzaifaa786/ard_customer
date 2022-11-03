@@ -15,9 +15,7 @@ class VendorPackageTypeSelector extends StatelessWidget {
   final NewParcelViewModel vm;
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: vm.recipientInfoFormKey,
-    child: VStack(
+    return VStack(
       [
         //
         "Select Courier Vendor".tr().text.xl.medium.make().py20(),
@@ -38,40 +36,16 @@ class VendorPackageTypeSelector extends StatelessWidget {
             );
           },
         ).box.make().py20().scrollVertical().expand(),
-        "Enter Contact Info".tr().text.xl.medium.make().py20(),
-        CustomListView(
-          dataSet: vm.recipientNamesTEC,
-          itemBuilder: (context, index) {
-            DeliveryAddress stop;
-            if (index == 0) {
-              stop = vm.packageCheckout.pickupLocation;
-            } else {
-              stop =
-                  vm.packageCheckout.stopsLocation[index - 1].deliveryAddress;
-            }
-            final recipientNameTEC = vm.recipientNamesTEC[index];
-            final recipientPhoneTEC = vm.recipientPhonesTEC[index];
-            final noteTEC = vm.recipientNotesTEC[index];
-            //
-            return PackageStopRecipientView(
-              stop,
-              recipientNameTEC,
-              recipientPhoneTEC,
-              noteTEC,
-              isOpen: index == vm.openedRecipientFormIndex,
-              index: index + 1,
-            );
-          },
-          padding: EdgeInsets.only(top: Vx.dp16),
-        ).box.make().expand(),
+      
 
         //
         FormStepController(
           onPreviousPressed: () => vm.nextForm(1),
           onNextPressed:
-              vm.selectedVendor != null ?  vm.validateRecipientInfo: null,
+              vm.selectedVendor != null ? () => vm.nextForm(!vm.requireParcelInfo ? 5 : 4): null,
+                
         ),
       ],
-    ));
+    );
   }
 }

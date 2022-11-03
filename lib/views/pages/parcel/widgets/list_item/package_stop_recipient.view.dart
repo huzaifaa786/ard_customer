@@ -46,11 +46,16 @@ class _PackageStopRecipientViewState extends State<PackageStopRecipientView> {
   void initState() {
     super.initState();
     isOpen = widget.isOpen;
+  
+  
   }
 
   //
   @override
   Widget build(BuildContext context) {
+    widget.recipientNameTEC.text = widget.stop.name;
+    widget.recipientPhoneTEC.text = widget.stop.phone;
+    widget.noteTEC.text = widget.stop.description;
     return VStack(
       [
         //

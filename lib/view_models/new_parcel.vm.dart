@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/foundation.dart';
@@ -151,6 +152,7 @@ class NewParcelViewModel extends PaymentViewModel {
 
   fetchParcelVendors() async {
     //
+
     vendors = [];
     selectedVendor = null;
     setBusyForObject(vendors, true);
@@ -163,13 +165,16 @@ class NewParcelViewModel extends PaymentViewModel {
 
       //filter vendors and select the ones that can deliver to the addresses selected on previous page
       for (var vendor in mVendors) {
+
         final isAllowed = ParcelVendorService.canServiceAllLocations(
+          
           packageCheckout.stopsLocation ?? [],
           vendor,
         );
-        if (isAllowed) {
+        // if (isAllowed) {
+
           vendors.add(vendor);
-        }
+        // }
       }
 
       //
@@ -516,11 +521,15 @@ class NewParcelViewModel extends PaymentViewModel {
 
   //Form validationns
   validateDeliveryInfo() async {
+      log('11');
     if (deliveryInfoFormKey.currentState.validate()) {
       //
       //
+      log('11');
       if (AppStrings.enableSingleVendor) {
+        
         setBusyForObject(selectedVendor, true);
+      
         await fetchParcelVendors();
         setBusyForObject(selectedVendor, false);
         //
@@ -530,8 +539,9 @@ class NewParcelViewModel extends PaymentViewModel {
           nextForm(2);
         }
       } else {
+       fetchParcelVendors();
         nextForm(2);
-        fetchParcelVendors();
+        
       }
     }
   }

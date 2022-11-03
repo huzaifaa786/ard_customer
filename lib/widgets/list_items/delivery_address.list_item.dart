@@ -40,7 +40,12 @@ class DeliveryAddressListItem extends StatelessWidget {
                     .maxLines(3)
                     .overflow(TextOverflow.ellipsis)
                     .make(),
+               deliveryAddress.phone.text.sm
+                    .maxLines(3)
+                    .overflow(TextOverflow.ellipsis)
+                    .make(),
                 "${deliveryAddress.description}".text.sm.make(),
+
                 (deliveryAddress.defaultDeliveryAddress && showDefault)
                     ? "Default"
                         .tr()
