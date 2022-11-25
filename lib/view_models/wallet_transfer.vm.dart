@@ -44,7 +44,9 @@ class WalletTransferViewModel extends PaymentViewModel with QrcodeScannerTrait {
     ApiResponse apiResponse = await walletRequest.getWalletAddress(keyword);
     if (apiResponse.allGood) {
       //
-      return (apiResponse.body["users"] as List).map((e) => User.fromJson(e)).toList();
+      return (apiResponse.body["users"] as List)
+          .map((e) => User.fromJson(e))
+          .toList();
     } else {
       return [];
     }
@@ -97,11 +99,13 @@ class WalletTransferViewModel extends PaymentViewModel with QrcodeScannerTrait {
     phone = currentUser.phone;
     print(phone);
     //
+   
     if (AppStrings.isFirebaseOtp) {
       processFirebaseOTPVerification();
     } else {
       processCustomOTPVerification();
     }
+   
   }
 
   //PROCESSING VERIFICATION
@@ -119,7 +123,8 @@ class WalletTransferViewModel extends PaymentViewModel with QrcodeScannerTrait {
       verificationFailed: (FirebaseAuthException e) {
         log("Error message ==> ${e.message}");
         if (e.code == 'invalid-phone-number') {
-          viewContext.showToast(msg: "Invalid Phone Number".tr(), bgColor: Colors.red);
+          viewContext.showToast(
+              msg: "Invalid Phone Number".tr(), bgColor: Colors.red);
         } else {
           viewContext.showToast(msg: e.message, bgColor: Colors.red);
         }
@@ -140,6 +145,7 @@ class WalletTransferViewModel extends PaymentViewModel with QrcodeScannerTrait {
 
   processCustomOTPVerification() async {
     // setBusyForObject(otpLogin, true);
+     setBusy(true);
     try {
       await authRequest.sendOTP(phone);
       // setBusyForObject(otpLogin, false);
@@ -148,6 +154,7 @@ class WalletTransferViewModel extends PaymentViewModel with QrcodeScannerTrait {
       // setBusyForObject(otpLogin, false);
       viewContext.showToast(msg: "$error", bgColor: Colors.red);
     }
+     setBusy(false);
   }
 
   //
