@@ -44,7 +44,7 @@ class PackageType {
         formattedDate:
             json["formatted_date"] == null ? null : json["formatted_date"],
         photo: json["photo"] == null ? null : json["photo"],
-        package_type_pricings_count: int.parse(json['package_type_pricings_count']) ?? 0
+        package_type_pricings_count: json['package_type_pricings_count'] ?? 0
       );
 
   Map<String, dynamic> toJson() => {
